@@ -6,11 +6,10 @@ import rightlogo from "./assest/rightlogo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   return (
     <nav className="text-white shadow-lg bg-gradient-to-r from-indigo-600 via-blue-500 to-teal-400">
-      <div className="container flex items-center justify-between px-4 py-4 mx-auto h-36">
+      <div className="container flex items-center justify-between h-32 px-4 py-4 mx-auto">
         {/* Logo Left */}
         <div className="flex items-center space-x-2">
           <motion.div
@@ -25,8 +24,37 @@ const Navbar = () => {
           </motion.div>
         </div>
 
-        {/* Right Side (Contact Info & Logo) */}
-        <div className="items-center hidden space-x-4 md:flex">
+        {/* Right Side (Social Media & Logo) */}
+        <div className="flex items-center space-x-4">
+          {/* Social Media Buttons */}
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://www.facebook.com/profile.php?id=61553223065692"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-white bg-blue-600 rounded-full hover:bg-blue-700"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/nda-plastech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-white bg-blue-800 rounded-full hover:bg-blue-900"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/ndaplastech2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-white bg-pink-600 rounded-full hover:bg-pink-700"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+
+          {/* Right Logo */}
           <motion.div
             className="flex items-center justify-center space-x-2 text-2xl font-bold"
             initial={{ opacity: 0, x: 20 }}
@@ -52,176 +80,41 @@ const Navbar = () => {
             </Link>
           </motion.div>
         </div>
-
-        {/* Hamburger Menu (Mobile View) */}
-        <div className="flex items-center space-x-4 md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
-            <i className="fa-solid fa-bars"></i>
-          </button>
-        </div>
       </div>
+      {/* Navigation and Search in a Single Row */}
+      <div className="flex flex-col items-center justify-center w-full bg-gradient-to-r from-indigo-600 via-blue-500 to-teal-400">
 
-      {/* Desktop Navigation */}
-      <div className="container flex items-center justify-center hidden p-2 space-x-6 rounded-t-lg md:flex">
-        <Link to="/" className="px-4 py-2 rounded hover:bg-indigo-700">
-          <i className="fa-solid fa-house mr-1.5 text-sm"></i>Home
-        </Link>
-        <Link to="/about" className="px-4 py-2 rounded hover:bg-indigo-700">
-          About Us
-        </Link>
-
-        {/* Products Dropdown */}
-        <div className="relative">
-          <button
-            className="px-4 py-2 rounded hover:bg-indigo-700"
-            onClick={() => setIsProductsOpen(!isProductsOpen)}
-          >
-            Products
-          </button>
-          {isProductsOpen && (
-            <div className="absolute left-0 z-10 w-48 mt-2 text-blue-600 bg-white shadow-md">
-              <Link
-                to="/products/frp-cabin"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Cabin
-              </Link>
-              <Link
-                to="/products/frp-toilet"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Toilet
-              </Link>
-              <Link
-                to="/products/frp-dome"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Dome
-              </Link>
-              <Link
-                to="/products/frp-door"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Door
-              </Link>
-              <Link
-                to="/products/frp-boat"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Boat
-              </Link>
-              <Link
-                to="/products/frp-dustbin"
-                className="block px-4 py-2 hover:bg-indigo-100"
-              >
-                FRP Dustbin
-              </Link>
-            </div>
-          )}
-        </div>
-
-        <Link to="/client" className="px-4 py-2 rounded hover:bg-indigo-700">
-          Client
-        </Link>
-        <Link to="/gallery" className="px-4 py-2 rounded hover:bg-indigo-700">
-          Gallery
-        </Link>
-        <Link to="/enquiry" className="px-4 py-2 rounded hover:bg-indigo-700">
-          Enquiry
-        </Link>
-        <Link to="/blog" className="px-4 py-2 rounded hover:bg-indigo-700">
-          <i className="fa-solid fa-blog mr-1.5 text-sm"></i>Blog
-        </Link>
-        <Link to="/contact" className="px-4 py-2 rounded hover:bg-indigo-700">
-          <i className="mr-1 text-sm fa-solid fa-phone"></i> Contact Us
-        </Link>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="p-4 space-y-4 bg-indigo-600 md:hidden">
-          <Link to="/" className="block px-4 py-2 text-white">
-            Home
+        <div className="flex flex-wrap items-center justify-center p-4 space-x-4">
+          <Link to="/" className="px-4 py-2 rounded hover:bg-indigo-700">
+            <i className="fa-solid fa-house mr-1.5 text-sm"></i>Home
           </Link>
-          <Link to="/about" className="block px-4 py-2 text-white">
+          <Link to="/about" className="px-4 py-2 rounded hover:bg-indigo-700">
             About Us
           </Link>
-
-          {/* Products Dropdown (Mobile) */}
-          <div className="relative">
-            <button
-              className="block w-full px-4 py-2 text-white"
-              onClick={() => setIsProductsOpen(!isProductsOpen)}
-            >
-              Products
-            </button>
-            {isProductsOpen && (
-              <div className="mt-2 text-blue-600 bg-white shadow-md">
-                <Link
-                  to="/products/frp-cabin"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Cabin
-                </Link>
-                <Link
-                  to="/products/frp-toilet"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Toilet
-                </Link>
-                <Link
-                  to="/products/frp-dome"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Dome
-                </Link>
-                <Link
-                  to="/products/frp-door"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Door
-                </Link>
-                <Link
-                  to="/products/frp-boat"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Boat
-                </Link>
-                <Link
-                  to="/products/frp-dustbin"
-                  className="block px-4 py-2 hover:bg-indigo-100"
-                >
-                  FRP Dustbin
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link to="/client" className="block px-4 py-2 text-white">
+          <Link to="/product" className="px-4 py-2 rounded hover:bg-indigo-700">
+            Products
+          </Link>
+          <Link to="/client" className="px-4 py-2 rounded hover:bg-indigo-700">
             Client
           </Link>
-          <Link to="/gallery" className="block px-4 py-2 text-white">
+          <Link to="/gallery" className="px-4 py-2 rounded hover:bg-indigo-700">
             Gallery
           </Link>
-          <Link to="/enquiry" className="block px-4 py-2 text-white">
+          <Link to="/enquiry" className="px-4 py-2 rounded hover:bg-indigo-700">
             Enquiry
           </Link>
-          <Link to="/blog" className="block px-4 py-2 text-white">
-            Blog
+          <Link to="/blog" className="px-4 py-2 rounded hover:bg-indigo-700">
+            <i className="fa-solid fa-blog mr-1.5 text-sm"></i>Blog
           </Link>
-          <Link to="/contact" className="block px-4 py-2 text-white">
-            Contact Us
+          <Link to="/contact" className="px-4 py-2 rounded hover:bg-indigo-700">
+            <i className="mr-1 text-sm fa-solid fa-phone"></i> Contact Us
           </Link>
         </div>
-      )}
-
-      {/* Search Section */}
-      <div className="container flex justify-center ">
         <form
           action="https://www.google.com/search"
           method="GET"
           target="_blank"
-          className="flex items-center space-x-2"
+          className="flex items-center justify-center mb-2 space-x-2"
         >
           <input
             type="text"

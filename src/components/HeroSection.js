@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import WelcomeSection from "./WelcomeSection"; // Import the WelcomeSection component
 
 const HeroSection = ({ title, subtitle, buttonText }) => {
   // Array of image paths in the public/images folder (for images 1.jpg, 2.jpg, etc.)
@@ -32,6 +33,11 @@ const HeroSection = ({ title, subtitle, buttonText }) => {
               >
                 Contact Us
               </Link>
+            </div>
+
+            {/* Insert WelcomeSection here */}
+            <div className="mt-12">
+              <WelcomeSection />
             </div>
           </div>
 
