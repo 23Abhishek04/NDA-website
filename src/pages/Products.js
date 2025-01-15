@@ -1,78 +1,84 @@
 import React from 'react';
 
+const importAll = (r) => r.keys().reduce((acc, item, index) => {
+  acc[index] = r(item);
+  return acc;
+}, {});
+
+const images = importAll(require.context('./assests', false, /\.(png|jpe?g|svg)$/));
 
 const Products = () => {
   const products = [
     { 
       title: 'FRP Cabin', 
       description: 'Durable and lightweight cabins, ideal for multiple applications.', 
-      image: 'o1', 
+      image: images[0],
       alt: 'FRP Cabin',
     },
     { 
       title: 'FRP Toilet / Urinals', 
       description: 'Hygienic and portable FRP toilets and urinals for public and private spaces.', 
-      image: '/assets/frp-toilet.jpg', 
+      image: images[1],
       alt: 'FRP Toilet / Urinals',
     },
     { 
       title: 'FRP Dome & Canopy', 
       description: 'Stylish and sturdy domes and canopies for various environments.', 
-      image: '/assets/frp-dome.jpg', 
+      image: images[2], 
       alt: 'FRP Dome & Canopy',
     },
     { 
       title: 'FRP Door', 
       description: 'Elegant and long-lasting FRP doors with superior strength.', 
-      image: '/assets/frp-door.jpg', 
+      image: images[3], 
       alt: 'FRP Door',
     },
     { 
       title: 'FRP Boat & Jetty', 
       description: 'High-performance boats and jetties designed for durability and safety.', 
-      image: '/assets/frp-boat.jpg', 
+      image: images[4], 
       alt: 'FRP Boat & Jetty',
     },
     { 
       title: 'FRP Scrubber & Man Hole Cover', 
       description: 'Advanced FRP scrubbers and manhole covers for industrial and municipal needs.', 
-      image: '/assets/frp-scrubber.jpg', 
+      image: images[5], 
       alt: 'FRP Scrubber & Man Hole Cover',
     },
     { 
       title: 'FRP Grating & Tree Guard', 
       description: 'Robust gratings and tree guards for enhanced protection and utility.', 
-      image: '/assets/frp-grating.jpg', 
+      image: images[6], 
       alt: 'FRP Grating & Tree Guard',
     },
     { 
       title: 'FRP Dustbin & Planter', 
       description: 'Stylish and eco-friendly dustbins and planters for urban and rural settings.', 
-      image: '/assets/frp-dustbin.jpg', 
+      image: images[7], 
       alt: 'FRP Dustbin & Planter',
     },
     { 
       title: 'FRP Vachanalaya', 
       description: 'Durable and functional structures for vachanalayas.', 
-      image: '/assets/frp-vachanalaya.jpg', 
+      image: images[8], 
       alt: 'FRP Vachanalaya',
     },
     { 
       title: 'FRP Bus Stop', 
       description: 'Modern and weather-resistant bus stops designed for durability.', 
-      image: '/assets/frp-busstop.jpg', 
+      image: images[9], 
       alt: 'FRP Bus Stop',
     },
     { 
       title: 'FRP Lining & FRP Tank', 
       description: 'Reliable linings and tanks for industrial and domestic use.', 
-      image: '/assets/frp-lining.jpg', 
+      image: images[10], 
       alt: 'FRP Lining & FRP Tank',
     },
     { 
       title: 'FRP Turn Key Projects', 
       description: 'Comprehensive turnkey solutions for FRP projects of any scale.', 
-      image: '/assets/frp-turnkey.jpg', 
+      image: images[11], 
       alt: 'FRP Turn Key Projects',
     },
   ];
